@@ -1,0 +1,30 @@
+<main>
+  <p class="eyebrow">Exemplo de desenvolvimento com IA</p>
+  <h1>Lista de tarefas</h1>
+  <p>Adicione novas tarefas à sua lista.</p>
+
+  <form (submit)="$event.preventDefault(); addTask(taskInput)">
+    <label for="task">Nova tarefa</label>
+    <div class="form-row">
+      <input #taskInput id="task" name="task" type="text" maxlength="255" autocomplete="off" />
+      <button type="submit" [disabled]="isSaving()">Adicionar</button>
+    </div>
+  </form>
+
+  @if (error(); as message) {
+    <p role="alert">{{ message }}</p>
+  }
+
+  @if (isLoading()) {
+    <p role="status">Carregando tarefas...</p>
+  } @else if (tasks().length === 0) {
+    <p>Nenhuma tarefa adicionada.</p>
+  } @else {
+    <ul>
+      @for (task of tasks(); track task.id) {
+        <li>{{ task.title }}</li>
+      }
+    </ul>
+  }
+  <p class="note">As tarefas são carregadas e salvas no backend com PostgreSQL.</p>
+</main>

@@ -1,0 +1,16 @@
+{
+  "name": "Angular com IA",
+  "image": "node:24-bookworm",
+  "runArgs": ["--name", "poc-angular-ia"],
+  "postCreateCommand": "npm ci --no-audit --no-fund",
+  "forwardPorts": [4200],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "angular.ng-template",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    }
+  }
+}
