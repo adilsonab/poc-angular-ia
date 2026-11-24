@@ -119,16 +119,25 @@ A pasta [`prompts/`](prompts/) contém três prompts numerados para reproduzir
 este exemplo e estudar uma evolução controlada:
 
 1. [01 — Recriar a baseline](prompts/01-recriar.md): gera o frontend de tarefas
-   com Angular 21.2, as instruções, skills, MCP e Dev Container deste projeto,
-   sem adicionar funcionalidades nem atualizar versões.
-2. [02 — Instalar o Spec Kit](prompts/02-speckit.md): prepara o Specify CLI e a
-   integração GitHub Copilot no repositório existente, protegendo os arquivos e
-   customizações que já existem.
-3. [03 — Atualizar tecnologias](prompts/03-atualizar.md): usa o fluxo do Spec
-   Kit para especificar, planejar e validar a atualização de Angular e do
-   toolchain, com revisão antes da implementação.
+   com Angular 21.2 e configura as três formas de instrução de IA deste projeto:
+   Rules, Agent Skills e MCP do Angular. Não atualiza nem amplia o projeto.
+2. [02 — Instalar o Spec Kit](prompts/02-speckit.md): instala o Specify CLI,
+   inicializa a integração GitHub Copilot e cria/revisa o AS-IS da versão atual,
+   protegendo os arquivos e customizações existentes.
+3. [03 — Definir o TO-BE e migrar](prompts/03-atualizar.md): usa o AS-IS como
+   referência para especificar a versão desejada, planejar migrations e validar
+   a atualização do Angular e do toolchain, com revisão humana entre etapas.
 
 ### Como usar o Spec Kit neste projeto
+
+Este repositório demonstra um percurso em três momentos:
+
+1. **Prompt 01 — baseline e recursos de IA:** cria o projeto, a Rules, as Agent
+   Skills e o MCP sem atualizar versões.
+2. **Prompt 02 — instalação e AS-IS:** instala o Spec Kit e registra o estado
+   confirmado da baseline antes de uma mudança.
+3. **Prompt 03 — TO-BE e migração:** compara a baseline AS-IS com a próxima
+   versão desejada, planeja as migrations e executa somente após revisão.
 
 Abra a raiz do projeto no VS Code, entre no Dev Container e use o prompt 02 no
 chat do Copilot para instalar e inicializar o Spec Kit. A inicialização em um

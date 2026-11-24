@@ -1,14 +1,21 @@
-# Prompt 03 — Atualizar tecnologias
+# Prompt 03 — Definir o TO-BE e migrar tecnologias
 
 Use depois da instalacao e revisao do Spec Kit pelo [prompt 02](./02-speckit.md).
-Execute o fluxo no chat do Copilot, uma etapa por vez, revendo e aprovando cada
-artefato antes de prosseguir.
+Use o AS-IS criado no prompt 02 como referencia da versao atual. Execute o
+fluxo no chat do Copilot, uma etapa por vez, revendo e aprovando cada artefato
+antes de prosseguir.
 
 ```text
 Quero atualizar de forma controlada as tecnologias deste projeto, incluindo
 Angular e dependencias relacionadas, para versoes estaveis atuais compativeis.
 Comece pela especificacao e planejamento; nao altere arquivos nem instale
 pacotes ate eu revisar e aprovar os artefatos do Spec Kit.
+
+A especificacao criada nesta etapa sera o TO-BE: descreva a versao desejada
+como um delta sobre a baseline AS-IS em
+specs/001-baseline-asis/spec.md, preservando o comportamento necessario e
+registrando deliberadamente as mudancas de tecnologia, compatibilidade e
+validacao. Nao trate o AS-IS como se fosse um objetivo novo.
 
 Inspecione o estado atual do repositorio, package.json/lockfile, angular.json,
 tsconfig, testes e Dev Container. A baseline e Angular 21.2.x, Node 24, npm,

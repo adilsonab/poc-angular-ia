@@ -1,12 +1,13 @@
-# Prompt 01 — Recriar a baseline
+# Prompt 01 — Criar baseline e recursos de IA
 
 Use este prompt em um workspace vazio, com o GitHub Copilot no VS Code e o
-Dev Container aberto. O objetivo e reproduzir a baseline deste exemplo, nao
-moderniza-la nem inventar requisitos. Se este repositorio estiver disponivel,
-trate seus arquivos e historico como fonte de verdade.
+Dev Container aberto. O objetivo é criar a versão AS-IS do exemplo e instalar
+seus recursos de IA: Rules, Agent Skills e MCP do Angular. Não modernize
+tecnologias nem invente requisitos. Se este repositório estiver disponível,
+trate os arquivos e o histórico como fonte de verdade.
 
 ```text
-Recrie neste workspace a baseline do projeto de exemplo Angular com IA descrita
+Crie neste workspace a baseline do projeto de exemplo Angular com IA descrita
 abaixo. Antes de editar, inspecione o workspace e as instrucoes ja presentes.
 Se o repositorio de referencia estiver disponivel, compare com ele e preserve
 seu comportamento. Nao sobrescreva arquivos preexistentes sem apresentar a
@@ -43,10 +44,14 @@ colisao e pedir autorizacao.
   incluindo as regras Angular acima, build e testes, uso de Node/npm/CLI/MCP
   dentro do Dev Container e proibicao de dados reais ou sigilosos em exemplos
   e consultas externas.
-- Instale as skills oficiais angular-developer e angular-new-app do repositorio
+- Instale as Agent Skills oficiais angular-developer e angular-new-app do
+  repositorio
   angular/skills em .agents/skills, em modo de copia. Se a referencia estiver
   disponivel, mantenha a revisao registrada em skills-lock.json; nao atualize
   para outra revisao sem pedir.
+- Explique a diferenca entre Rules, Agent Skills e MCP no README final:
+  Rules orientam todas as interacoes relevantes; Agent Skills fornecem
+  orientacao especializada sob demanda; MCP conecta o agente a ferramentas.
 - Configure o MCP angular-cli em .vscode/mcp.json usando a CLI local do
   projeto e o Node do Dev Container. Nao adicione outros servidores MCP nem
   habilite acesso a segredos.
