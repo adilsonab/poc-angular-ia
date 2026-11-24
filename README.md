@@ -113,18 +113,18 @@ O comando acessa a internet e pode instalar uma revisão mais recente; revise
 as alterações e o lockfile antes de compartilhá-las. `--copy` evita depender
 de links simbólicos no Windows.
 
-## Prompts para estudo
+## Tutorial: Rules, Agent Skills, MCP e migração com Spec Kit
 
 A pasta [`prompts/`](prompts/) contém três prompts numerados para reproduzir
 este exemplo e estudar uma evolução controlada:
 
-1. [01 — Recriar a baseline](prompts/01-recriar.md): gera o frontend de tarefas
+1. [01-recriar-poc.md](prompts/01-recriar-poc.md): gera o frontend de tarefas
    com Angular 21.2 e configura as três formas de instrução de IA deste projeto:
    Rules, Agent Skills e MCP do Angular. Não atualiza nem amplia o projeto.
-2. [02 — Instalar o Spec Kit](prompts/02-speckit.md): instala o Specify CLI,
+2. [02-instalar-speckit.md](prompts/02-instalar-speckit.md): instala o Specify CLI,
    inicializa a integração GitHub Copilot e cria/revisa o AS-IS da versão atual,
    protegendo os arquivos e customizações existentes.
-3. [03 — Definir o TO-BE e migrar](prompts/03-atualizar.md): usa o AS-IS como
+3. [03-migrar-stack.md](prompts/03-migrar-stack.md): usa o AS-IS como
    referência para especificar a versão desejada, planejar migrations e validar
    a atualização do Angular e do toolchain, com revisão humana entre etapas.
 
@@ -132,11 +132,11 @@ este exemplo e estudar uma evolução controlada:
 
 Este repositório demonstra um percurso em três momentos:
 
-1. **Prompt 01 — baseline e recursos de IA:** cria o projeto, a Rules, as Agent
+1. **01-recriar-poc — baseline e recursos de IA:** cria o projeto, as Rules, as Agent
    Skills e o MCP sem atualizar versões.
-2. **Prompt 02 — instalação e AS-IS:** instala o Spec Kit e registra o estado
+2. **02-instalar-speckit — instalação e AS-IS:** instala o Spec Kit e registra o estado
    confirmado da baseline antes de uma mudança.
-3. **Prompt 03 — TO-BE e migração:** compara a baseline AS-IS com a próxima
+3. **03-migrar-stack — TO-BE e migração:** compara a baseline AS-IS com a próxima
    versão desejada, planeja as migrations e executa somente após revisão.
 
 Abra a raiz do projeto no VS Code, entre no Dev Container e use o prompt 02 no
@@ -207,7 +207,7 @@ e mantenha o backend separado em execução quando testar a interface.
 1. Abra o workspace em branco no VS Code.
 2. Abra o projeto no Dev Container.
 3. Cole no chat do Copilot o conteúdo de
-   [`prompts/01-recriar.md`](prompts/01-recriar.md).
+   [`prompts/01-recriar-poc.md`](prompts/01-recriar-poc.md).
 4. Confira a criação de:
    `.github/copilot-instructions.md` (Rules);
    `.agents/skills/angular-developer/` e
@@ -222,7 +222,7 @@ e mantenha o backend separado em execução quando testar a interface.
 
 1. Confirme que o backend não é alterado e que o Git está limpo ou revisável.
 2. Cole no chat do Copilot o conteúdo de
-   [`prompts/02-speckit.md`](prompts/02-speckit.md).
+   [`prompts/02-instalar-speckit.md`](prompts/02-instalar-speckit.md).
 3. Instale `uv` e o Spec Kit conforme a saída oficial, por exemplo:
 
    ```sh
@@ -252,7 +252,7 @@ e mantenha o backend separado em execução quando testar a interface.
 
 1. Escolha o destino da versão e registre a escolha no prompt.
 2. Cole no chat do Copilot o conteúdo de
-   [`prompts/03-atualizar.md`](prompts/03-atualizar.md).
+   [`prompts/03-migrar-stack.md`](prompts/03-migrar-stack.md).
 3. Consulte a AS-IS e faça `/speckit-specify` para criar o TO-BE.
 4. Use `/speckit-clarify` somente para dúvidas que alterem o risco ou o escopo.
 5. Use `/speckit-plan`, `/speckit-tasks` e `/speckit-analyze`.

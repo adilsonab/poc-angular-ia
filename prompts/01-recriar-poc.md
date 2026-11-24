@@ -1,4 +1,4 @@
-# Prompt 01 — Criar baseline e recursos de IA
+# 01 — Recriar a POC
 
 Use este prompt em um workspace vazio, com o GitHub Copilot no VS Code e o
 Dev Container aberto. O objetivo é criar a versão AS-IS do exemplo e instalar

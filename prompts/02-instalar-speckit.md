@@ -1,6 +1,6 @@
-# Prompt 02 — Instalar o Spec Kit e registrar o AS-IS
+# 02 — Instalar Spec Kit
 
-Use depois de criar/revisar a baseline do [prompt 01](./01-recriar.md), com o
+Use depois de criar/revisar a baseline do [01-recriar-poc.md](./01-recriar-poc.md), com o
 repositório aberto na raiz e um baseline revisável. Este prompt instala o
 Spec Kit e cria a documentação AS-IS da versão atual. Não implemente nem
 modernize uma funcionalidade.

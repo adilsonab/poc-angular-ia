@@ -1,7 +1,7 @@
-# Prompt 03 — Definir o TO-BE e migrar tecnologias
+# 03 — Migrar a stack
 
-Use depois da instalacao e revisao do Spec Kit pelo [prompt 02](./02-speckit.md).
-Use o AS-IS criado no prompt 02 como referencia da versao atual. Execute o
+Use depois da instalacao e revisao do Spec Kit pelo [02-instalar-speckit.md](./02-instalar-speckit.md).
+Use o AS-IS criado no passo 02 como referencia da versao atual. Execute o
 fluxo no chat do Copilot, uma etapa por vez, revendo e aprovando cada artefato
 antes de prosseguir.
 
