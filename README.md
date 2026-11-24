@@ -137,6 +137,17 @@ arquivos gerenciados, portanto revise conflitos e mantenha um baseline
 revisável antes de autorizá-la. Não aceite uma sobrescrita de rules, skills ou
 configuração MCP sem entender a diferença.
 
+### Baseline AS-IS
+
+A baseline atual está documentada em
+[`specs/001-baseline-asis/spec.md`](specs/001-baseline-asis/spec.md), com a
+validação em
+[`specs/001-baseline-asis/checklists/requirements.md`](specs/001-baseline-asis/checklists/requirements.md).
+Esse artefato registra o comportamento, os contratos HTTP, a stack Angular,
+as customizações de IA e os gates de build/testes antes de uma mudança. Ele
+não cria uma especificação retroativa de código novo e não autoriza nenhuma
+modernização.
+
 Depois, trabalhe no chat do Copilot (não no terminal) e execute as skills do
 Spec Kit separadamente, revisando o resultado de cada etapa:
 
