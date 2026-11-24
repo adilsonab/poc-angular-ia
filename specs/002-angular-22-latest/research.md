@@ -44,6 +44,5 @@ CLI `ng update` schematics, plus a local build/test gate.
 
 ## Decision
 
-Update Angular packages to 22.3.0, TypeScript to 6.0.2, RxJS to 7.8.2, Vitest
-to a supported 4 or 5 release, and jsdom to the latest compatible release.
-Keep Node 24 and npm 11 where Angular 22 and the Dev Container support them.
+Update Angular packages to 22.3.0, TypeScript to 6.0.3, RxJS to 7.8.2, Vitest
+to 5.1.1 and jsdom to 31.0.1. Keep Node 24.22.3 and npm 11.19.1.

@@ -69,4 +69,10 @@ build e testes em cada etapa indicada, e use `/speckit-converge` para procurar
 lacunas. Ao final, informe versoes anterior/nova, migrations executadas,
 arquivos relevantes, comandos e resultados. Se nao houver informacao oficial
 suficiente para uma atualizacao segura, pare e explique a lacuna.
+
+Para esta execucao, use como destino inicial a versao stable mais recente
+confirmada no registro npm. Preserve Node 24.22.3; nao troque o Node apenas
+para executar a migracao. Confirme TypeScript contra o peer de @angular/build,
+align Angular framework/CLI/compiler/build em conjunto e use ng update antes
+de edicoes textuais manuais.
 ```

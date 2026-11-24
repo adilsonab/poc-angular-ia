@@ -157,6 +157,125 @@ as customizações de IA e os gates de build/testes antes de uma mudança. Ele
 não cria uma especificação retroativa de código novo e não autoriza nenhuma
 modernização.
 
+### Migração TO-BE já realizada
+
+Esta versão foi migrada da baseline Angular 21 para Angular 22.3.0 em
+2026-11-24. Os artefatos do objetivo estão em
+[`specs/002-angular-22-latest/spec.md`](specs/002-angular-22-latest/spec.md),
+com plano em
+[`specs/002-angular-22-latest/plan.md`](specs/002-angular-22-latest/plan.md)
+e tarefas em
+[`specs/002-angular-22-latest/tasks.md`](specs/002-angular-22-latest/tasks.md).
+
+Versões verificadas:
+
+| Tecnologia | AS-IS | TO-BE |
+| --- | --- | --- |
+| Angular, CLI e build | 21.2.x / 21.2.30 | 22.3.0 |
+| Node.js | 24.22.3 | 24.22.3 |
+| npm | 11.19.1 | 11.19.1 |
+| TypeScript | 5.9.3 | 6.0.3 |
+| RxJS | 7.8.2 | 7.8.2 |
+| Vitest | 4.1.12 | 5.1.1 |
+| jsdom | 27.0.1 | 31.0.1 |
+| tslib | versão 2.3.x anterior | 2.9.1 |
+
+O resultado foi validado em 2026-11-24:
+
+```sh
+npm ci --no-audit --no-fund
+npm run build
+npm test -- --watch=false
+```
+
+- `npm ci`: concluído.
+- `npm run build`: concluído.
+- `npm test -- --watch=false`: 1 arquivo de testes passou e 3 testes passaram.
+- As chamadas GET/POST do frontend não mudaram.
+- Standalone, OnPush, zoneless e Signals foram preservados.
+- A configuração Angular voltou a usar templates estritos.
+- Não foram adicionados Zone.js ou NgModules.
+- Rules, Agent Skills, MCP e Spec Kit foram preservados.
+
+### Tutorial completo para iniciantes
+
+Execute os passos em ordem. Faça alterações somente dentro do Dev Container
+e mantenha o backend separado em execução quando testar a interface.
+
+#### Passo 1 — Criar a baseline e os recursos de IA
+
+1. Abra o workspace em branco no VS Code.
+2. Abra o projeto no Dev Container.
+3. Cole no chat do Copilot o conteúdo de
+   [`prompts/01-recriar.md`](prompts/01-recriar.md).
+4. Confira a criação de:
+   `.github/copilot-instructions.md` (Rules);
+   `.agents/skills/angular-developer/` e
+   `.agents/skills/angular-new-app/` (Agent Skills);
+   `.vscode/mcp.json` (MCP angular-cli).
+5. Revise as diferenças; não aceite versões de skills mais recentes sem querer
+   atualizar a baseline.
+6. Execute `npm ci`, `npm run build` e
+   `npm test -- --watch=false`.
+
+#### Passo 2 — Instalar o Spec Kit e salvar o AS-IS
+
+1. Confirme que o backend não é alterado e que o Git está limpo ou revisável.
+2. Cole no chat do Copilot o conteúdo de
+   [`prompts/02-speckit.md`](prompts/02-speckit.md).
+3. Instale `uv` e o Spec Kit conforme a saída oficial, por exemplo:
+
+   ```sh
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   export PATH="$HOME/.local/bin:$PATH"
+   uv tool install specify-cli
+   specify version
+   ```
+
+4. Inicialize na pasta existente sem usar `--force` antes de revisar colisões:
+
+   ```sh
+   specify init --here --integration copilot --non-interactive --ignore-agent-tools
+   ```
+
+5. Preencha a constitution confirmada em
+   `.specify/memory/constitution.md`.
+6. Execute no chat do Copilot:
+   `/speckit-specify`, `/speckit-plan`, `/speckit-tasks` e
+   `/speckit-analyze`, conforme a etapa de documentação AS-IS.
+7. Confirme os artefatos em
+   `specs/001-baseline-asis/spec.md` e
+   `specs/001-baseline-asis/checklists/requirements.md`.
+8. Crie um commit desse ponto antes de iniciar a migração.
+
+#### Passo 3 — Definir o TO-BE e migrar
+
+1. Escolha o destino da versão e registre a escolha no prompt.
+2. Cole no chat do Copilot o conteúdo de
+   [`prompts/03-atualizar.md`](prompts/03-atualizar.md).
+3. Consulte a AS-IS e faça `/speckit-specify` para criar o TO-BE.
+4. Use `/speckit-clarify` somente para dúvidas que alterem o risco ou o escopo.
+5. Use `/speckit-plan`, `/speckit-tasks` e `/speckit-analyze`.
+6. Execute a migração oficial somente após revisão. O exemplo realizado usou:
+
+   ```sh
+   npx --yes @angular/cli@22.3.0 update \
+     @angular/core@22.3.0 @angular/cli@22.3.0 --allow-dirty
+   npm install --save-dev vitest@5.1.1 jsdom@31.0.1 prettier@3.8.1
+   npm install tslib@^2.9.1
+   npm ci --no-audit --no-fund
+   npm run build
+   npm test -- --watch=false
+   ```
+
+7. Revise `package.json`, `package-lock.json`, `angular.json`, `tsconfig*.json`
+   e o diff gerado pelos schematics.
+8. Use `/speckit-converge` até não restarem lacunas ou até elas serem
+   explicitamente registradas.
+9. Atualize o README com versões anteriores, versões novas, migrations,
+   comandos, resultados e rollback.
+10. Faça commit e push somente depois que build e testes estiverem verdes.
+
 Depois, trabalhe no chat do Copilot (não no terminal) e execute as skills do
 Spec Kit separadamente, revisando o resultado de cada etapa:
 

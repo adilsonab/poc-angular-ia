@@ -4,7 +4,7 @@
 
 **Created**: 2026-11-24
 
-**Status**: Ready for planning
+**Status**: Accepted and implemented
 
 **Input**: Upgrade the accepted Angular 21 AS-IS baseline to the latest stable
 Angular 22-compatible stack while preserving behavior and the Node 24
